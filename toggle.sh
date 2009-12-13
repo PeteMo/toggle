@@ -5,6 +5,10 @@ INT=LVDS1
 EXT=VGA1
 
 XRANDR=$(xrandr)
+if [[ -z $XRANDR ]]; then
+    echo "Error; is \`xrandr' installed?"
+    exit 1
+fi
 
 get_state() {
     local output=$1
